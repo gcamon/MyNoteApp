@@ -24,7 +24,7 @@ class NoteApplication {
 		var note = new Note(note_content);
 		note._id += 1;
 		note.author = this.author;
-		note.note_content = note_content;
+		note.note_content += note_content;
 		this.allNotes.push(note);			
 		console.log('note created successfully, note id is: ' + note._id);
 	}
