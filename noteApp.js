@@ -8,5 +8,19 @@ class NoteApplication {
 
 	}
 
-	listNotes()
+	listNotes() {
+
+	}
+
+	get(note_id) {
+
+	}
+
+	search(search_text) {
+
+	}
+
+	delete(note_id) {
+		
+	}
 }
