@@ -1,3 +1,5 @@
+
+/** Class to instantiate the the note_content */
 class Note {
 	constructor(){
 		this.note_content = "";
@@ -6,14 +8,21 @@ class Note {
 	}
 }
 
-
+/** Class that holds the mathods for attributes and 
+*   behaviours to be performed on note_content object instances.
+*/
 class NoteApplication {
+	/** Creates a new object and sets its properties 
+	* Takes in a parameter author as the author of the note and saves this as an instance variable.
+	* Create a notes list/array to store all the notes as an instance property.	
+	*/ 	
 	constructor (author) {
 		this.author = author;
 		this.allNotes = [];
 	};
 
-	create(note_content) {	 	
+	/** takes the note content as the parameter and adds it to the notes list of the object.*/
+	create(note_content) {		
 		var note = new Note(note_content);
 		note._id += 1;
 		note.author = this.author;
@@ -22,7 +31,8 @@ class NoteApplication {
 		console.log('note created successfully, note id is: ' + note._id);
 	}
 
-	listNotes() {
+	/**  lists out each of the notes in the notes list */
+	listNotes() {		
 		this.allNotes.forEach(function (item) {
 			console.log('note id : ' + item._id);
 			console.log(item.note_content);
@@ -30,6 +40,9 @@ class NoteApplication {
 		})
 	}
 
+	/** takes a note_id which refers to the index of the note in the notes 
+	* list and returns the content of that note as a string.
+	*/
 	get(note_id) {
 		if(typeof note_id === 'number'){
 		this.allNotes.forEach(function (item) {
@@ -46,6 +59,7 @@ class NoteApplication {
 
 	}
 
+	/** take a search string, search_text and returns all the notes with that text */
 	search(search_text) {
 		if(typeof search_text === 'string'){						
 			this.allNotes.forEach(function(item){				
@@ -62,7 +76,8 @@ class NoteApplication {
 		}
 
 	}
-	
+
+	/** Deletes the note at the index note_id of the notes list.*/
 	delete(note_id) {
 		if(typeof note_id === 'number') {
 			for(var item = 0; item < this.allNotes.length; item++) {
@@ -79,6 +94,7 @@ class NoteApplication {
 
 	}
 
+	/** Replaces the content in the note at note_id with new_content.*/
 	edit(note_id, new_content) {
 		if(typeof note_id === 'number' && typeof new_content === 'string') {
 			this.allNotes.forEach(function (item) {
