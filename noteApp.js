@@ -1,14 +1,3 @@
-
-/** Class used to instantiate the the note_content */
-class Note {
-	constructor(id,author,content){
-		this.note_content = content;
-		this.author = author;
-		this._id = id;
-	}
-}
-
-
 class NoteApplication {
 	/**Creates a new object and sets its properties 
 	*  Takes in a parameter author as the author of the note and saves this as an instance variable.
@@ -21,10 +10,10 @@ class NoteApplication {
 
 	/** Takes the note content as the parameter and adds it to the notes list of the object.*/
 	create(note_content) {
-		if(typeof note_content === 'string'){		
-			var note = new Note(note_content);
-			note._id ++;
-			var note = new Note(note._id, author, note_content);
+		if(typeof note_content === 'string'){
+			let noteId = 0;		
+			var note = new Note(noteId, this.author, note_content);
+			note._id++;			
 			this.allNotes.push(note);			
 			console.log('note created successfully, note id is: ' + note._id);
 		} else {
@@ -64,7 +53,7 @@ class NoteApplication {
 	search(search_text) {
 		if(typeof search_text === 'string'){						
 			this.allNotes.forEach(function(item){				
-				if(search_text === item.note_content){
+				if(item.note_content.indexOf(search_text) !== -1){
 					console.log('Note Id : ' + item._id);
 					console.log(item.note_content);
 					console.log('Author by : ' + item.author);
@@ -111,6 +100,3 @@ class NoteApplication {
 		}
 	}
 }
-
-
-
