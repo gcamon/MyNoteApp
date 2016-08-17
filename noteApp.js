@@ -23,7 +23,7 @@ class NoteApplication {
 	create(note_content) {
 		if(typeof note_content === 'string'){		
 			var note = new Note(note_content);
-			note._id += 1;
+			note._id ++;
 			note.author = this.author;
 			note.note_content += note_content;
 			this.allNotes.push(note);			
