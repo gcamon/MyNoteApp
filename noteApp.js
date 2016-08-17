@@ -20,13 +20,17 @@ class NoteApplication {
 	};
 
 	/** Takes the note content as the parameter and adds it to the notes list of the object.*/
-	create(note_content) {		
-		var note = new Note(note_content);
-		note._id += 1;
-		note.author = this.author;
-		note.note_content += note_content;
-		this.allNotes.push(note);			
-		console.log('note created successfully, note id is: ' + note._id);
+	create(note_content) {
+		if(typeof note_content === 'string'){		
+			var note = new Note(note_content);
+			note._id += 1;
+			note.author = this.author;
+			note.note_content += note_content;
+			this.allNotes.push(note);			
+			console.log('note created successfully, note id is: ' + note._id);
+		} else {
+			console.log('Invalid input! Must be string')
+		}
 	}
 
 	/**  Lists out each of the notes in the notes list */
