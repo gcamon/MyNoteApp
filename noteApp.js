@@ -65,7 +65,7 @@ class NoteApplication {
 	search(search_text) {
 		if(typeof search_text === 'string'){						
 			this.allNotes.forEach(function(item){				
-				if(search_text === item.note_content){
+				if(item.note_content.indexOf(search_text) !== -1){
 					console.log('Note Id : ' + item._id);
 					console.log(item.note_content);
 					console.log('Author by : ' + item.author);
