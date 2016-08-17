@@ -1,10 +1,10 @@
 
 /** Class used to instantiate the the note_content */
 class Note {
-	constructor(){
-		this.note_content = "";
-		this.author = "";
-		this._id = 0;
+	constructor(id,author,content){
+		this.note_content = content;
+		this.author = author;
+		this._id = id;
 	}
 }
 
@@ -23,9 +23,8 @@ class NoteApplication {
 	create(note_content) {
 		if(typeof note_content === 'string'){		
 			var note = new Note(note_content);
-			note._id += 1;
-			note.author = this.author;
-			note.note_content += note_content;
+			note._id ++;
+			var note = new Note(note._id, author, note_content);
 			this.allNotes.push(note);			
 			console.log('note created successfully, note id is: ' + note._id);
 		} else {
