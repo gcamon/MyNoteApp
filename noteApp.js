@@ -1,5 +1,5 @@
 
-/** Class to instantiate the the note_content */
+/** Class used to instantiate the the note_content */
 class Note {
 	constructor(){
 		this.note_content = "";
@@ -8,20 +8,18 @@ class Note {
 	}
 }
 
-/** Class that holds the mathods for attributes and 
-*   behaviours to be performed on note_content object instances.
-*/
+
 class NoteApplication {
-	/** Creates a new object and sets its properties 
-	* Takes in a parameter author as the author of the note and saves this as an instance variable.
-	* Create a notes list/array to store all the notes as an instance property.	
+	/**Creates a new object and sets its properties 
+	*  Takes in a parameter author as the author of the note and saves this as an instance variable.
+	*  Create a notes list/array to store all the notes as an instance property.	
 	*/ 	
 	constructor (author) {
 		this.author = author;
 		this.allNotes = [];
 	};
 
-	/** takes the note content as the parameter and adds it to the notes list of the object.*/
+	/** Takes the note content as the parameter and adds it to the notes list of the object.*/
 	create(note_content) {		
 		var note = new Note(note_content);
 		note._id += 1;
@@ -31,7 +29,7 @@ class NoteApplication {
 		console.log('note created successfully, note id is: ' + note._id);
 	}
 
-	/**  lists out each of the notes in the notes list */
+	/**  Lists out each of the notes in the notes list */
 	listNotes() {		
 		this.allNotes.forEach(function (item) {
 			console.log('note id : ' + item._id);
@@ -40,7 +38,7 @@ class NoteApplication {
 		})
 	}
 
-	/** takes a note_id which refers to the index of the note in the notes 
+	/** Takes a note_id which refers to the index of the note in the notes 
 	* list and returns the content of that note as a string.
 	*/
 	get(note_id) {
@@ -59,7 +57,7 @@ class NoteApplication {
 
 	}
 
-	/** take a search string, search_text and returns all the notes with that text */
+	/** Take a search string, search_text and returns all the notes with that text */
 	search(search_text) {
 		if(typeof search_text === 'string'){						
 			this.allNotes.forEach(function(item){				
