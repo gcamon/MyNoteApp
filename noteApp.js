@@ -1,3 +1,14 @@
+
+/** Class used to instantiate the the note_content */
+class Note {
+	constructor(id,author,content){
+		this.note_content = content;
+		this.author = author;
+		this._id = id;
+	}
+}
+
+
 class NoteApplication {
 	/**Creates a new object and sets its properties 
 	*  Takes in a parameter author as the author of the note and saves this as an instance variable.
@@ -20,6 +31,7 @@ class NoteApplication {
 			console.log('Invalid input! Must be string')
 		}
 	}
+
 
 	/**  Lists out each of the notes in the notes list */
 	listNotes() {		
@@ -53,7 +65,7 @@ class NoteApplication {
 	search(search_text) {
 		if(typeof search_text === 'string'){						
 			this.allNotes.forEach(function(item){				
-				if(item.note_content.indexOf(search_text) !== -1){
+				if(search_text === item.note_content){
 					console.log('Note Id : ' + item._id);
 					console.log(item.note_content);
 					console.log('Author by : ' + item.author);
@@ -100,3 +112,6 @@ class NoteApplication {
 		}
 	}
 }
+
+
+
