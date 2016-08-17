@@ -15,15 +15,14 @@ class NoteApplication {
 	*  Create a notes list/array to store all the notes as an instance property.	
 	*/ 	
 	constructor (author) {
-		this.author = author;
 		this.allNotes = [];
 	};
 
 	/** Takes the note content as the parameter and adds it to the notes list of the object.*/
-	create(note_content) {
+	create(note_content, author) {
 		if(typeof note_content === 'string'){
 			let noteId = 0;		
-			var note = new Note(noteId, this.author, note_content);
+			var note = new Note(noteId, author, note_content);
 			note._id++;			
 			this.allNotes.push(note);			
 			console.log('note created successfully, note id is: ' + note._id);
