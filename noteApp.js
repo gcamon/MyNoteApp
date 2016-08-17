@@ -12,7 +12,6 @@ class NoteApplication {
 	constructor(author) {
 		this.allNotes = [];
 		this.author = author;
-		this.note_id = 0;	
 	}
 
 	create(note_content) { 
