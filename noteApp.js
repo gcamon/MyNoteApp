@@ -1,7 +1,8 @@
 class NoteApplication {
 	constructor(author) {
+		this.allNotes = []
 		this.author = author;
-		this.list = [];
+		this.note_id = 0;	
 	}
 
 	create(note_content) {
@@ -21,9 +22,9 @@ class NoteApplication {
 
 	listNotes() {
 		this.allNotes.forEach(function (item) {
-		console.log('note id :' + item._id);
-		console.log(item.note_content)
-		console.log('Author by : ' + item.author)
+			console.log('note id :' + item._id);
+			console.log(item.note_content)
+			console.log('Author by : ' + item.author)
 		})
 	}
 
@@ -56,9 +57,9 @@ class NoteApplication {
 				console.log('No such content availabe')
 			}		
 		})
-	} else {
-		console.log('Invalid search input')
-	}
+		} else {
+			console.log('Invalid search input')
+		}
 
 	}
 
