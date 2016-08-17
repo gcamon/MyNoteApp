@@ -1,18 +1,23 @@
 
 class Note {
+	//Note content constructor
+	//initializes an instance of the note content  with properties when called.
 	constructor(properties){
 		this.properties = properties;
 	}
 }
 
 class NoteApplication {
+	//Initialize an instance of an Object
 	constructor(author) {
 		this.allNotes = []
 		this.author = author;
 		this.note_id = 0;	
 	}
 
-	create(note_content) {
+	create(note_content) { 
+		// Method to create note content with properties.
+		//Will create an object with property of the note content.
 	 	if(typeof note_content === 'object') {
 			var note = new Note(note_content);
 			note.properties._id += 1
@@ -25,6 +30,8 @@ class NoteApplication {
 	}
 
 	listNotes() {
+		//Will list all the notes save to array.
+		// and display accordingly.
 		this.allNotes.forEach(function (item) {
 			console.log(item)
 			console.log('note id :' + item.properties._id);
@@ -34,6 +41,7 @@ class NoteApplication {
 	}
 
 	get(note_id) {
+		//This gets the particular note content by the id passed as argument;
 		if(typeof note_id === 'number'){
 		this.allNotes.forEach(function (item) {
 			if(note_id === item.properties._id) {
@@ -43,13 +51,14 @@ class NoteApplication {
 			}
 		})
 
-	} else {
-		console.log('Invalid note id! Please enter a valid Number')
-	}
+		} else {
+			console.log('Invalid note id! Please enter a valid Number')
+		}
 
 	}
 
 	search(search_text) {
+		//this searches the note itself by the string of text passed as an argument.
 		if(typeof search_text === 'string'){
 		var reg = /search_text/i;
 		this.allNotes.forEach(function(item){	
@@ -68,6 +77,7 @@ class NoteApplication {
 	}
 
 	delete(note_id) {
+		//Simply deletes the note by the id passed as an argument.
 		if(typeof note_id === 'number') {
 		this.allNotes.forEach(function (item) {
 			if(item.properties._id === note_id){
@@ -84,6 +94,7 @@ class NoteApplication {
 	}
 
 	edit(note_id, new_content) {
+		//simply edits the note with the new_content passed as an argument by the note id.
 		if(typeof note_id === 'number' && typeof new_content === 'string') {
 		this.allNotes.forEach(function (item) {
 			if (item.properties._id === note_id) {
