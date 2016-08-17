@@ -46,7 +46,7 @@ class NoteApplication {
 	* list and returns the content of that note as a string.
 	*/
 	get(note_id) {
-		if(typeof note_id === 'number'){
+		if( typeof note_id === 'number' && note_id > 0 ){
 		this.allNotes.forEach(function (item) {
 			if(note_id === item._id) {
 				console.log(item.note_content);
@@ -81,7 +81,7 @@ class NoteApplication {
 
 	/** Deletes the note at the index note_id of the notes list.*/
 	delete(note_id) {
-		if(typeof note_id === 'number') {
+		if( typeof note_id === 'number' && note_id > 0 ) {
 			for(var item = 0; item < this.allNotes.length; item++) {
 				if(this.allNotes[item]._id === note_id){
 					this.allNotes.splice( item, 1 );
@@ -98,7 +98,7 @@ class NoteApplication {
 
 	/** Replaces the content in the note at note_id with new_content.*/
 	edit(note_id, new_content) {
-		if(typeof note_id === 'number' && typeof new_content === 'string') {
+		if(typeof note_id === 'number' && note_id > 0 && typeof new_content === 'string') {
 			this.allNotes.forEach(function (item) {
 				if (item._id === note_id) {
 					item.note_content = new_content;
