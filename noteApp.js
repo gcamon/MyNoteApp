@@ -14,18 +14,19 @@ class NoteApplication {
 	*  Takes in a parameter author as the author of the note and saves this as an instance variable.
 	*  Create a notes list/array to store all the notes as an instance property.	
 	*/ 	
-	constructor () {
+	constructor (author) {
+		this.author = author;
 		this.allNotes = [];
 	};
 
 	/** Takes the note content as the parameter and adds it to the notes list of the object.*/
 	create(note_content) {
-		note_content.id++;		
-		var note = new Note(note_content.id, note_content.author, note_content.content);
+	    note_content.author	= this.author;	
+		note_content.id++;
+		var note = new Note(note_content.id,note_content.author, note_content.content);			
 		this.allNotes.push(note);			
-		console.log('note created successfully, note id is: ' + note._id);		
+		console.log('note created successfully, note id is: ' + note.id);	
 	}
-
 
 	/**  Lists out each of the notes in the notes list */
 	listNotes() {		
@@ -54,7 +55,6 @@ class NoteApplication {
 		}
 
 	}
-
 	/** Take a search string, search_text and returns all the notes with that text */
 	search(search_text) {
 		if(typeof search_text === 'string'){						
