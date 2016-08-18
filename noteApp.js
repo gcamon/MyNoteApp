@@ -2,9 +2,9 @@
 /** Class used to instantiate the the note_content */
 class Note {
 	constructor(id,author,content){
-		this.note_content = content;
+		this.content = content;
 		this.author = author;
-		this._id = id;
+		this.id = id;
 	}
 }
 
@@ -14,21 +14,15 @@ class NoteApplication {
 	*  Takes in a parameter author as the author of the note and saves this as an instance variable.
 	*  Create a notes list/array to store all the notes as an instance property.	
 	*/ 	
-	constructor (author) {
+	constructor () {
 		this.allNotes = [];
 	};
 
 	/** Takes the note content as the parameter and adds it to the notes list of the object.*/
-	create(note_content, author) {
-		if(typeof note_content === 'string'){
-			let noteId = 0;		
-			var note = new Note(noteId, author, note_content);
-			note._id++;			
-			this.allNotes.push(note);			
-			console.log('note created successfully, note id is: ' + note._id);
-		} else {
-			console.log('Invalid input! Must be string')
-		}
+	create(note_content) {
+		var note = new Note(note_content.id, note_content.author, note_content.content);				
+		this.allNotes.push(note);			
+		console.log('note created successfully, note id is: ' + note._id);		
 	}
 
 
@@ -111,6 +105,8 @@ class NoteApplication {
 		}
 	}
 }
+
+
 
 
 
