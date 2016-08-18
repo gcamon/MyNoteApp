@@ -30,8 +30,8 @@ class NoteApplication {
 	/**  Lists out each of the notes in the notes list */
 	listNotes() {		
 		this.allNotes.forEach(function (item) {
-			console.log('note id : ' + item._id);
-			console.log(item.note_content);
+			console.log('note id : ' + item.id);
+			console.log(item.content);
 			console.log('Author by : ' + item.author);
 		})
 	}
@@ -42,8 +42,8 @@ class NoteApplication {
 	get(note_id) {
 		if( typeof note_id === 'number' && note_id > 0 ){
 		this.allNotes.forEach(function (item) {
-			if(note_id === item._id) {
-				console.log(item.note_content);
+			if(note_id === item.id) {
+				console.log(item.content);
 			} else {
 				console.log('no such content');
 			}
@@ -59,9 +59,9 @@ class NoteApplication {
 	search(search_text) {
 		if(typeof search_text === 'string'){						
 			this.allNotes.forEach(function(item){				
-				if(item.note_content.indexOf(search_text) !== -1){
-					console.log('Note Id : ' + item._id);
-					console.log(item.note_content);
+				if(item.content.indexOf(search_text) !== -1){
+					console.log('Note Id : ' + item.id);
+					console.log(item.content);
 					console.log('Author by : ' + item.author);
 				} else {
 					console.log('No such content availabe');
@@ -77,7 +77,7 @@ class NoteApplication {
 	delete(note_id) {
 		if( typeof note_id === 'number' && note_id > 0 ) {
 			for(var item = 0; item < this.allNotes.length; item++) {
-				if(this.allNotes[item]._id === note_id){
+				if(this.allNotes[item].id === note_id){
 					this.allNotes.splice( item, 1 );
 					console.log('note deleted successfully!');
 				} else {
@@ -94,8 +94,8 @@ class NoteApplication {
 	edit(note_id, new_content) {
 		if(typeof note_id === 'number' && note_id > 0 && typeof new_content === 'string') {
 			this.allNotes.forEach(function (item) {
-				if (item._id === note_id) {
-					item.note_content = new_content;
+				if (item.id === note_id) {
+					item.content = new_content;
 					console.log('content edited successfully!');
 				} else {
 					console.log('Invalid note ID');
