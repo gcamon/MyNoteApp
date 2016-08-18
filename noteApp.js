@@ -20,7 +20,8 @@ class NoteApplication {
 
 	/** Takes the note content as the parameter and adds it to the notes list of the object.*/
 	create(note_content) {
-		var note = new Note(note_content.id, note_content.author, note_content.content);				
+		var note = new Note(note_content.id, note_content.author, note_content.content);
+		note_content.id++;				
 		this.allNotes.push(note);			
 		console.log('note created successfully, note id is: ' + note._id);		
 	}
