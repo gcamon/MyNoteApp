@@ -1,6 +1,6 @@
 
 /** Class used to instantiate the the note_content
-*	@param{number,string,string} instanciate the object with
+*	@param{number,string,string} initializes the object with
 * 	user id, author's name and the note.
 */
 class Note {
