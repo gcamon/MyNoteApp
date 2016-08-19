@@ -1,5 +1,8 @@
 
-/** Class used to instantiate the the note_content */
+/** Class used to instantiate the the note_content
+*	@param{number,string,string} instanciate the object with
+* 	user id, author's name and the note.
+*/
 class Note {
 	constructor(id,author,content){
 		this.content = content;
@@ -12,14 +15,17 @@ class Note {
 class NoteApplication {
 	/**Creates a new object and sets its properties 
 	*  Takes in a parameter author as the author of the note and saves this as an instance variable.
-	*  Create a notes list/array to store all the notes as an instance property.	
+	*  Create a notes list/array to store all the notes as an instance property.
+	*  @param{string}	
 	*/ 	
 	constructor (author) {
 		this.author = author;
 		this.allNotes = [];
 	};
 
-	/** Takes the note content as the parameter and adds it to the notes list of the object.*/
+	/** Takes the note content as the parameter and adds it to the notes list @allNotes of the object.
+	*   @param{object} the instance of the Note class.
+	*/
 	create(note_content) {
 	    note_content.author	= this.author;	
 		note_content.id++;
@@ -38,7 +44,8 @@ class NoteApplication {
 	}
 
 	/** Takes a note_id which refers to the index of the note in the notes 
-	* list and returns the content of that note as a string.
+	*   list and returns the content of that note as a string.
+	*   @param{integer} that identifies the note id of the note content.
 	*/
 	get(note_id) {
 		if( typeof note_id === 'number' && note_id > 0 ){
@@ -55,7 +62,9 @@ class NoteApplication {
 		}
 
 	}
-	/** Take a search string, search_text and returns all the notes with that text */
+	/** Take a search string, search_text and returns all the notes with that text
+	*	@param{string} this expects to return note content that exactly the input.
+	*/
 	search(search_text) {
 		if(typeof search_text === 'string'){						
 			this.allNotes.forEach(function(item){				
@@ -73,7 +82,9 @@ class NoteApplication {
 
 	}
 
-	/** Deletes the note at the index note_id of the notes list.*/
+	/** Deletes the note at the index note_id of the notes list 
+	*   @param{number} the note id to be deleted.
+	*/
 	delete(note_id) {
 		if( typeof note_id === 'number' && note_id > 0 ) {
 			for(var item = 0; item < this.allNotes.length; item++) {
@@ -90,7 +101,9 @@ class NoteApplication {
 
 	}
 
-	/** Replaces the content in the note at note_id with new_content.*/
+	/** Replaces the content in the note at note_id with new_content.
+	*	@param{number,string} the id and the new text to replace the existing note content.
+	*/
 	edit(note_id, new_content) {
 		if(typeof note_id === 'number' && note_id > 0 && typeof new_content === 'string') {
 			this.allNotes.forEach(function (item) {
