@@ -26,10 +26,10 @@ __Create the following functionality for the NotesApplication class__
 
 #### Showing results for search ‘[<search_text>]’
 
-#### Note ID: [note_id]
-	#### [NOTE_CONTENT]
+Note ID: [note_id]
+	[NOTE_CONTENT]
 
-	#### By Author [author]
+	By Author [author]
  
 - delete(note_id) - This function deletes the note at the index note_id of the notes list.
 - edit(note_id, new_content) - This function replaces the content in the note at note_id with new_content.
